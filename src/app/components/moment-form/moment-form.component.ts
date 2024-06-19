@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Moment } from '../../interfaces/Moment';
 
 @Component({
   selector: 'app-moment-form',
@@ -8,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class MomentFormComponent implements OnInit {
   @Input() btnText!: string;
+  @Output() onSubmit = new EventEmitter<Moment>();
 
   momentForm!: FormGroup;
 
@@ -28,10 +30,19 @@ export class MomentFormComponent implements OnInit {
     return this.momentForm.get('description')!;
   }
 
+  onChangeSelected(event: any) {
+    //pegando imagem e inserindo no formulário
+    const file: File = event.target.files[0];
+    this.momentForm.patchValue({ image: file });
+  }
+
   submit(): void {
     if (this.momentForm.invalid) {
       return;
     }
-    console.log('Enviou o frmulário');
+    console.log(this.momentForm.value);
+
+    //envia os dados do formulário para o componente pai através do evento
+    this.onSubmit.emit(this.momentForm.value);
   }
 }
