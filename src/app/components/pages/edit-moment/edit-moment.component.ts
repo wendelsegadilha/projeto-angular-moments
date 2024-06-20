@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MomentService } from '../../../services/moment.service';
 import { Moment } from '../../../interfaces/moment';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MessagesService } from '../../../services/messages.service';
 
 @Component({
   selector: 'app-edit-moment',
@@ -14,8 +15,23 @@ export class EditMomentComponent implements OnInit {
 
   constructor(
     private momentService: MomentService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messageService: MessagesService,
+    private router: Router
   ) {}
+
+  async editHandler(momentData: Moment) {
+    const id = this.moment.id;
+    const formData = new FormData();
+    formData.append('title', momentData.title);
+    formData.append('description', momentData.description);
+    if (momentData.image) {
+      formData.append('image', momentData.image);
+    }
+    await this.momentService.updateMoment(id!, formData).subscribe();
+    this.messageService.add(`Momento ${id} atualizado com sucesso!`);
+    this.router.navigate(['/']);
+  }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
