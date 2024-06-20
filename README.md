@@ -1,4 +1,30 @@
-# Moments
+#Projeto Moments
+## Frontend de um sistema de compartilhamento de imagens 
+
+### Funcionalidades (CRUD)
+- Cadastro
+- Atualização
+- Consulta
+- Exclusão
+
+### Tecnologias utilizadas: 
+- HTML
+- CSS
+- JavaScript / Tyspescript
+- Angular
+
+### Alguns prints
+![Home Listagem de Registros](https://github.com/wendelsegadilha/projeto-angular-moments/assets/16671438/43f99676-8cf8-4f1c-80b5-04a2de459206)
+
+![Cadastro](https://github.com/wendelsegadilha/projeto-angular-moments/assets/16671438/553c5a4b-5c9d-4468-8b70-0700e2575163)
+
+![Detalhes do Post](https://github.com/wendelsegadilha/projeto-angular-moments/assets/16671438/3f43714e-bdaf-43e0-827a-08055c3ae005)
+
+![Comentários](https://github.com/wendelsegadilha/projeto-angular-moments/assets/16671438/9600efe9-a4e6-4058-a148-9db74b06cb54)
+
+### E ai dev, vamos bater um papo?
+- [LinkedIn](https://www.linkedin.com/in/wendelsegadilha/)
+- [YouTube](https://www.youtube.com/wendelsegadilha)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
